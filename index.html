@@ -2,42 +2,55 @@
 <!--
 	Copyright (c) jp-zacky. All rights reserved.
 -->
-<html>
+<html lang="ja">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 	<title>zacky.io</title>
-	<link rel="styleseet" type="text/css" href="css/index.css" />
-	<link rel="stylesheet" type="text/css" href="css/tiltedpage-scroll.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
-	<script type="text/javascript" src="js/jquery.tiltedpage-scroll.js"></script>
+	<script type="text/javascript" src="js/jquery.inview.min.js"></script>
+
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".main").tiltedpage_scroll({
-  			sectionContainer: "> section",
-  			angle: 70,
-  			opacity: true,
-  			scale: true,
-  			outAnimation: true
-			});
+		$(function() {
+		$('.box').css('opacity', 0);
+		$('.box').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+			if (isInView) {
+				$(this).stop().animate({opacity: 1}, 2000);
+			}
+			else {
+				$(this).stop().animate({opacity: 0}, 1500);
+			}
+		});
 		});
 	</script>
 </head>
 <body>
-	<div class="main">
-	  <section class="page1">
-			<img src="demo1.jpg" >
-	  </section>
-	  <section class="page2">
-			<img src="demo2.jpg" >
-	  </section>
-		<section class="page3">
-		  <img src="demo3.jpg" >
-		</section>
-	  <section class="last-page">
-			<img src="demo4.jpg" >
-	  </section>
+<nav id="menu-wrap">
+<ul id="menu">
+	<li><a href="#">menu1</a></li>
+	<li><a href="#">menu2</a></li>
+	<li><a href="#">menu3</a></li>
+	<li><a href="#">menu4</a></li>
+	<li><a href="#">menu5</a></li>
+</ul>
+</nav>
+
+demo
+
+	<div class="box">
+		<img src="img/demo1.jpg" >
 	</div>
+	<div class="box">
+		<img src="img/demo2.jpg" >
+	</div>
+	<div class="box">
+		<img src="img/demo3.jpg" >
+	</div>
+	<div class="box">
+		<img src="img/demo4.jpg" >
+	</div>
+
 </body>
 </html>
